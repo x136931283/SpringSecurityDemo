@@ -1,0 +1,27 @@
+#项目参考文章：https://blog.csdn.net/qq_44709990/article/details/123082560?spm=1001.2014.3001.5502
+server:
+  port: 1009
+
+tian:
+  jwt:
+    header: Authorization
+    expire: 604800 # 7天，s为单位 此处过去设置的是hash 顶部的key，应该设置成功 hash里面map 的key。可以自己实现。存的时候带入时间，取的时候判断事件是否超时
+    secret: abcdefghabcdefghabcdefghabcdefgh
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/spring_security?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    hikari:
+      connection-test-query: SELECT 1
+      max-lifetime: 120000
+      maximum-pool-size: 200
+      minimum-idle: 5
+      connection-timeout: 30000
+      idle-timeout: 600000
+      pool-name: webPool
+  redis:
+    host: 127.0.0.1
+    port: 6379
